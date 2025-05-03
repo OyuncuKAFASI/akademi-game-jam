@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 842688197
       objectReference: {fileID: 0}
+    - target: {fileID: 5292801906423947693, guid: bd850b98eebae944bb70f862c6292ed5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6123284774978337479, guid: bd850b98eebae944bb70f862c6292ed5, type: 3}
       propertyPath: m_Name
       value: Character
@@ -1291,8 +1295,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1276456484}
   - {fileID: 1501475779}
+  - {fileID: 1276456484}
   - {fileID: 1647638294}
   - {fileID: 1112430938}
   - {fileID: 991547471}
