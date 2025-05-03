@@ -98,5 +98,15 @@ public class character_controller : MonoBehaviour
         }
     }
     
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Object"))
+        {
+            anim.SetBool("pushing", false);
+            pushing = false;
+        }
+    }
+
+     
     
 }
