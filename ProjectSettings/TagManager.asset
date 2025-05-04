@@ -8,6 +8,7 @@ TagManager:
   - Collector
   - Ground
   - Object
+  - FireTrap
   layers:
   - Default
   - TransparentFX
