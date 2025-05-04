@@ -40,14 +40,13 @@ public class CharacterController : MonoBehaviour
             moving = false;
         }
 
-        // Apply movement and keep vertical velocity
+
         float targetVelocityX = moveDirection * speed;
         float velocityDiff = targetVelocityX - _rigidbody2D.velocity.x;
         float acceleration = grounded ? 10f : 5f; // slower air control
 
         _rigidbody2D.velocity += new Vector2(velocityDiff * acceleration * Time.fixedDeltaTime, 0);
-
-        // Apply jump
+        
         if (jump)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
@@ -57,7 +56,6 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        // Allow movement input even in mid-air
         if (Input.GetKey(KeyCode.A))
         {
             moveDirection = -1.0f;
@@ -75,8 +73,7 @@ public class CharacterController : MonoBehaviour
             moveDirection = 0.0f;
             anim.SetFloat("speed", 0.0f);
         }
-
-        // Only allow jumping when grounded
+        
         if (grounded && Input.GetKeyDown(KeyCode.W))
         {
             jump = true;
@@ -92,19 +89,12 @@ public class CharacterController : MonoBehaviour
             anim.SetBool("grounded", true);
             grounded = true;
         }
-        else if (collision.gameObject.CompareTag("Object"))
+        while (collision.gameObject.CompareTag("Object"))
         {
             anim.SetBool("pushing", true);
             pushing = true;
         }
+        pushing = false;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Object"))
-        {
-            anim.SetBool("pushing", false);
-            pushing = false;
-        }
-    }
 }
