@@ -15,8 +15,6 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private Animator anim;
-    private EdgeCollider2D _edgeCollider2D;
-    private BoxCollider2D _boxCollider2D;
 
     void Awake()
     {
@@ -27,8 +25,7 @@ public class CharacterController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _edgeCollider2D = GetComponent<EdgeCollider2D>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+
     }
 
     private void FixedUpdate()
