@@ -15,6 +15,7 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private Animator anim;
+    
 
     void Awake()
     {
@@ -25,7 +26,7 @@ public class CharacterController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-
+        
     }
 
     private void FixedUpdate()
@@ -40,7 +41,11 @@ public class CharacterController : MonoBehaviour
         }
 
         // Apply movement and keep vertical velocity
-        _rigidbody2D.velocity = new Vector2(moveDirection * speed, _rigidbody2D.velocity.y);
+        float targetVelocityX = moveDirection * speed;
+        float velocityDiff = targetVelocityX - _rigidbody2D.velocity.x;
+        float acceleration = grounded ? 10f : 5f; // slower air control
+
+        _rigidbody2D.velocity += new Vector2(velocityDiff * acceleration * Time.fixedDeltaTime, 0);
 
         // Apply jump
         if (jump)
