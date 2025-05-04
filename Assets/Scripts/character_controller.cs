@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class character_controller : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     public float jumpForce = 3.0f;
     public float speed = 7.0f;
@@ -15,6 +15,8 @@ public class character_controller : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private Animator anim;
+    private EdgeCollider2D _edgeCollider2D;
+    private BoxCollider2D _boxCollider2D;
     
 
     void Awake()
@@ -26,6 +28,8 @@ public class character_controller : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _edgeCollider2D = GetComponent<EdgeCollider2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
     
     private void FixedUpdate()
@@ -81,7 +85,7 @@ public class character_controller : MonoBehaviour
         
         
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -107,6 +111,4 @@ public class character_controller : MonoBehaviour
         }
     }
 
-     
-    
 }
