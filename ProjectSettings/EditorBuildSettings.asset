@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7a08407961d25fb4a8a3b2477bd5df60
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Ancient.unity
+    guid: 0c617409b25ecd34fa04843d2b4c580e
+  - enabled: 1
+    path: Assets/Scenes/CorruptedCity.unity
+    guid: 7d248a670aa93b74ebe5d16cef56f35c
   - enabled: 1
     path: Assets/Scenes/Future.unity
     guid: 69415463c22140d4f9253eebd5ee8d10

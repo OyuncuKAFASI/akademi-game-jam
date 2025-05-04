@@ -17,7 +17,6 @@ public class CharacterController : MonoBehaviour
     private Animator anim;
     private EdgeCollider2D _edgeCollider2D;
     private BoxCollider2D _boxCollider2D;
-    
 
     void Awake()
     {
@@ -31,7 +30,7 @@ public class CharacterController : MonoBehaviour
         _edgeCollider2D = GetComponent<EdgeCollider2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
-    
+
     private void FixedUpdate()
     {
         if (_rigidbody2D.velocity != Vector2.zero)
@@ -42,9 +41,12 @@ public class CharacterController : MonoBehaviour
         {
             moving = false;
         }
-        
+
+        // Apply movement and keep vertical velocity
         _rigidbody2D.velocity = new Vector2(moveDirection * speed, _rigidbody2D.velocity.y);
-        if (jump == true)
+
+        // Apply jump
+        if (jump)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
             jump = false;
@@ -53,56 +55,49 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        if (grounded == true && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        // Allow movement input even in mid-air
+        if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                moveDirection = -1.0f;
-                _spriteRenderer.flipX = true;
-                anim.SetFloat("speed",speed);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                moveDirection = 1.0f;
-                _spriteRenderer.flipX = false;
-                anim.SetFloat("speed",speed);
-            }
-            
+            moveDirection = -1.0f;
+            _spriteRenderer.flipX = true;
+            anim.SetFloat("speed", speed);
         }
-        else if (grounded == true)
+        else if (Input.GetKey(KeyCode.D))
+        {
+            moveDirection = 1.0f;
+            _spriteRenderer.flipX = false;
+            anim.SetFloat("speed", speed);
+        }
+        else
         {
             moveDirection = 0.0f;
-            anim.SetFloat("speed",0.0f);
-
+            anim.SetFloat("speed", 0.0f);
         }
 
-        if (grounded == true && Input.GetKey(KeyCode.W))
+        // Only allow jumping when grounded
+        if (grounded && Input.GetKeyDown(KeyCode.W))
         {
             jump = true;
             grounded = false;
             anim.SetTrigger("jump");
         }
-        
-        
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            anim.SetBool("grounded",true);
+            anim.SetBool("grounded", true);
             grounded = true;
         }
-        
         else if (collision.gameObject.CompareTag("Object"))
         {
-            anim.SetBool("pushing",true);
+            anim.SetBool("pushing", true);
             pushing = true;
-            
         }
     }
-    
-    private void OnCollisionExit(Collision collision)
+
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Object"))
         {
@@ -110,5 +105,4 @@ public class CharacterController : MonoBehaviour
             pushing = false;
         }
     }
-
 }

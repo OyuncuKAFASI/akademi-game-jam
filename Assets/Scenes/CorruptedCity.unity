@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &19865769 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
-  m_PrefabInstance: {fileID: 6782423573947661892}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &86561045
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,7 +4245,6 @@ Transform:
   - {fileID: 1552605078}
   - {fileID: 86561049}
   - {fileID: 1433379616}
-  - {fileID: 19865769}
   - {fileID: 1526085876}
   - {fileID: 1189690941}
   - {fileID: 1780611789}
@@ -4984,19 +4978,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1883272172}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3247834034247571151, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
       propertyPath: m_Name
       value: lava
       objectReference: {fileID: 0}
     - target: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8097
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.79138684
+      value: 0.38000035
       objectReference: {fileID: 0}
     - target: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.111
+      value: -4.842495
       objectReference: {fileID: 0}
     - target: {fileID: 8227024746792371188, guid: 93fe08bea12b40d4892a303f6fc540d9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5041,3 +5047,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 752342633}
   - {fileID: 1883272172}
+  - {fileID: 6782423573947661892}
