@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 98421891
-  m_SortingLayer: 0
+  m_SortingLayerID: 842688197
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9e9b299a94d8ca243b203777fc3625f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,3 +203,4 @@ MonoBehaviour:
   player: {fileID: 0}
   projectilePrefab: {fileID: 2962618936033930770, guid: a333255a79eb5a94ebebfa769c0946c3, type: 3}
   projectileSpeed: 5
+  attackCooldown: 1.5

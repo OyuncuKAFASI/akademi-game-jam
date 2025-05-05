@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Lava : MonoBehaviour
 {
+    private bool hasCollided = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("character"))
+        if (other.CompareTag("character") && !hasCollided)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            hasCollided = true;
+            GameManager.Instance.PlayerDied();
         }
     }
 }
