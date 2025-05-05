@@ -86,7 +86,7 @@ public class CharacterController : MonoBehaviour
             anim.SetTrigger("jump");
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetMouseButtonDown(0))
         {
             if (!IsInAnimationState("Attack") && Time.time >= lastAttackTime + attackCooldown)
             {

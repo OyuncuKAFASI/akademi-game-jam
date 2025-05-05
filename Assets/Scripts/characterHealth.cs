@@ -22,14 +22,14 @@ public class characterHealth : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Debug.Log("HURT");
-            Hurt(10);
-        }
+        // if (Input.GetKeyDown(KeyCode.H))
+        // {
+        //     Debug.Log("HURT");
+        //     Hurt(10);
+        // }
         if(health <=0)
         {
-            Debug.Log("DEAD");
+            // Debug.Log("DEAD");
             animator.SetTrigger("death");
             StartCoroutine(DisableAnimatorAtEnd());
         }
@@ -67,7 +67,7 @@ public class characterHealth : MonoBehaviour
 
         for (int i = 0; i < heartImages.Length; i++)
         {
-            heartImages[i].gameObject.SetActive(true); // UI element aktif mi?
+            heartImages[i].gameObject.SetActive(true);
 
             if (i < heartsToShow)
                 heartImages[i].sprite = heartFull;

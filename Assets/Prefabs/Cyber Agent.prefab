@@ -197,10 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f690d61eef0f6643bad8a122ef6272f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectionRange: 8
-  attackRange: 4
+  moveSpeed: 4
+  detectionRange: 10
+  attackRange: 5
   player: {fileID: 0}
   projectilePrefab: {fileID: 2962618936033930770, guid: a333255a79eb5a94ebebfa769c0946c3, type: 3}
-  projectileSpeed: 5
+  projectileSpeed: 10
   attackCooldown: 1.5

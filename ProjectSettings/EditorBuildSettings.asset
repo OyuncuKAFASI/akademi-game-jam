@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MedievalCastle.unity
     guid: 61b2c6279e173614f95d7d144a32156f
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 6268371ae3fac9d4fa87f0c910db2f8a
   m_configObjects: {}

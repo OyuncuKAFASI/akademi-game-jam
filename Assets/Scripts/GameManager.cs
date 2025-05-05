@@ -29,7 +29,23 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GameOver");
         }
+    }
+
+    public void RestoreLives()
+    {
+        lives=3;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+
     }
 }
