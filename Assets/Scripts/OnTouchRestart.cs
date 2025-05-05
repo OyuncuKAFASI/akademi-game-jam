@@ -10,7 +10,7 @@ public class Lava : MonoBehaviour
         if (other.CompareTag("character") && !hasCollided)
         {
             hasCollided = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance.PlayerDied();
         }
     }
 }

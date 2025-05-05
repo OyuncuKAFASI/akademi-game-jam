@@ -288,7 +288,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  heartImages: []
+  heartImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   heartFull: {fileID: -1931142187, guid: 77363fa3ee09a3545aafad952b6365c0, type: 3}
   heartHalf: {fileID: 1172964010, guid: 77363fa3ee09a3545aafad952b6365c0, type: 3}
   heartEmpty: {fileID: -2097590116, guid: 77363fa3ee09a3545aafad952b6365c0, type: 3}
