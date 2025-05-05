@@ -7,7 +7,6 @@ public class Lava : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Eğer çarpan obje Player ise
         if (other.CompareTag("character"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
