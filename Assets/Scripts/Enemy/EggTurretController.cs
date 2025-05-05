@@ -12,6 +12,9 @@ public class EggTurretController : MonoBehaviour
 
     private bool isShooting = false;
 
+    public float attackCooldown = 2f; // cooldown süresi
+    private float lastAttackTime = -Mathf.Infinity;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -25,11 +28,17 @@ public class EggTurretController : MonoBehaviour
         {
             FaceDirection(((player.position - transform.position).normalized).x);
             animator.SetBool("isAttacking", true);
+
+            if (!isShooting && Time.time >= lastAttackTime + attackCooldown)
+            {
+                StartCoroutine(ShootAfterAnim());
+                lastAttackTime = Time.time;
+            }
         }
         else
         {
             animator.SetBool("isAttacking", false);
-            isShooting = false; 
+            isShooting = false;
         }
     }
 
@@ -53,9 +62,7 @@ public class EggTurretController : MonoBehaviour
 
         ShootProjectile();
 
-        yield return new WaitForSeconds(1f);
-
-        isShooting = false;
+        isShooting = false; // tekrar atışa hazır hale getir
     }
 
     public void ShootProjectile()
