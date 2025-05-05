@@ -13,7 +13,6 @@ TagManager:
   - enemy
   - ground
   - ladder
-  - character weapon
   layers:
   - Default
   - TransparentFX

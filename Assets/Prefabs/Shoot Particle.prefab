@@ -185,4 +185,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 5
   damage: 10
-  targetTag: character

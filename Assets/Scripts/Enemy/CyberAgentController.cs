@@ -36,7 +36,7 @@ public class CyberAgentController : MonoBehaviour
             {
                 animator.SetTrigger("attack");
                 lastAttackTime = Time.time;
-                isShooting = false; 
+                isShooting = false; // her saldırı başladığında tekrar ateş edebilmesi için sıfırla
             }
         }
         else if (distanceToPlayer <= detectionRange)
@@ -76,9 +76,11 @@ public class CyberAgentController : MonoBehaviour
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
+
+    // Bu fonksiyon animasyondan çağrılmalı (Animation Event ile)
     public void ShootProjectile()
     {
-        if (isShooting) return; 
+        if (isShooting) return; // zaten ateş ettiyse bu saldırı döngüsünde bir daha etmesin
 
         Vector2 direction = (player.position - transform.position).normalized;
 

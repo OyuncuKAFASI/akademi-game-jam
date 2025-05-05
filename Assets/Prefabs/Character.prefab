@@ -154,9 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 6
   speed: 4.5
-  projectilePrefab: {fileID: 5471328195908109828, guid: d8bc30891bdb61840a27694ffa3719e5, type: 3}
-  projectileSpeed: 5
-  attackCooldown: 3
 --- !u!70 &614009909426681177
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -288,12 +285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  heartImages: []
-  heartFull: {fileID: -1931142187, guid: 77363fa3ee09a3545aafad952b6365c0, type: 3}
-  heartHalf: {fileID: 1172964010, guid: 77363fa3ee09a3545aafad952b6365c0, type: 3}
-  heartEmpty: {fileID: -2097590116, guid: 77363fa3ee09a3545aafad952b6365c0, type: 3}
-  lifeIcons: []
-  lifeFull: {fileID: 0}
 --- !u!1 &6578867587238678326
 GameObject:
   m_ObjectHideFlags: 0
