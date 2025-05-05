@@ -6,6 +6,8 @@ public class projectileController : MonoBehaviour
 {
     public float lifeTime = 5f;
     public int damage = 10;
+    public string targetTag = "";
+    private bool alreadyHit = false;
 
     void Start()
     {
@@ -14,15 +16,27 @@ public class projectileController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("character"))
+        if (alreadyHit) return;
+        if (other.CompareTag(targetTag))
         {
             Debug.Log("VUR!");
-            characterHealth playerHealth = other.GetComponent<characterHealth>();
-            if (playerHealth != null)
+            alreadyHit = true;
+            if(targetTag == "character")
             {
-                playerHealth.Hurt(damage);
+                characterHealth targetHealth = other.GetComponent<characterHealth>();
+                if (targetHealth != null)
+                {
+                    targetHealth.Hurt(damage);
+                }
             }
-
+            else if(targetTag == "enemy")
+            {
+                EnemyHealth targetHealth = other.GetComponent<EnemyHealth>();
+                if (targetHealth != null)
+                {
+                    targetHealth.Hurt(damage);
+                }
+            }
             Destroy(gameObject);
         }
         else if (other.CompareTag("Ground"))
