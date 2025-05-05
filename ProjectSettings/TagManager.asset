@@ -9,6 +9,10 @@ TagManager:
   - Ground
   - Object
   - FireTrap
+  - enemy weapon
+  - enemy
+  - ground
+  - ladder
   layers:
   - Default
   - TransparentFX
