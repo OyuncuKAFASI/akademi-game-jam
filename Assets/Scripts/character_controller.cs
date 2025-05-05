@@ -15,6 +15,11 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private Animator anim;
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 5f;
+    public float attackCooldown = 5f;
+    private float lastAttackTime = -Mathf.Infinity;
+    private bool isShooting = false;
     
 
     void Awake()
@@ -80,6 +85,16 @@ public class CharacterController : MonoBehaviour
             grounded = false;
             anim.SetTrigger("jump");
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            if (!IsInAnimationState("Attack") && Time.time >= lastAttackTime + attackCooldown)
+            {
+                anim.SetTrigger("attack");
+                lastAttackTime = Time.time;
+                isShooting = false;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -97,4 +112,28 @@ public class CharacterController : MonoBehaviour
         pushing = false;
     }
 
+    public void ShootProjectile()
+    {
+        if (isShooting) return; 
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float directionX = sr.flipX ? -1f : 1f;
+        Vector2 direction = new Vector2(directionX, 0).normalized;
+
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.velocity = direction * projectileSpeed;
+        
+        SpriteRenderer projectileSR = projectile.GetComponent<SpriteRenderer>();
+        if (projectileSR != null)
+            projectileSR.flipX = directionX < 0;
+
+        isShooting = true;
+    }
+
+    bool IsInAnimationState(string stateName)
+    {
+        return anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
 }
