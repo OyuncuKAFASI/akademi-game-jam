@@ -32,7 +32,6 @@ public class CyberAgentController : MonoBehaviour
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            Debug.Log("????????????????");
             animator.SetBool("isPlayerNear", false);
             animator.SetBool("isPlayerDetected", true);
             animator.SetBool("isRunning", true);
@@ -44,7 +43,6 @@ public class CyberAgentController : MonoBehaviour
         }
         else
         {
-            Debug.Log("OOOOOOOOOOOOOOOOOOOOOO");
             animator.SetBool("isPlayerDetected", false);
             animator.SetBool("isPlayerNear", false);
             animator.SetBool("isRunning", false);

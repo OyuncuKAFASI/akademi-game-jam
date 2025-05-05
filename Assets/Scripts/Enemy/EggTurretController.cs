@@ -10,7 +10,7 @@ public class EggTurretController : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 5f;
 
-    private bool isShooting = false; // yeni kontrol değişkeni
+    private bool isShooting = false;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class EggTurretController : MonoBehaviour
         else
         {
             animator.SetBool("isAttacking", false);
-            isShooting = false; // oyuncu menzilden çıkınca tekrar atış yapılabilir
+            isShooting = false; 
         }
     }
 
@@ -53,7 +53,6 @@ public class EggTurretController : MonoBehaviour
 
         ShootProjectile();
 
-        // Eğer sürekli atış yapmasını istersen cooldown ekle
         yield return new WaitForSeconds(1f);
 
         isShooting = false;

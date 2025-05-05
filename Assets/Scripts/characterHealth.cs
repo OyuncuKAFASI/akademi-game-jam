@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class characterHealth : MonoBehaviour
 {
     public float health = 100;
     Animator animator;
@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     {
         animator  = GetComponent<Animator>();
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -21,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
         if(health <=0)
         {
             Debug.Log("DEAD");
-            animator.SetTrigger("dead");
+            animator.SetTrigger("death");
             StartCoroutine(DisableAnimatorAtEnd());
         }
     }
@@ -43,7 +44,6 @@ public class EnemyHealth : MonoBehaviour
             if (script != this)
                 script.enabled = false;
         }
-
         Destroy(gameObject);
     }
 }
