@@ -17,7 +17,7 @@ public class characterHealth : MonoBehaviour
         {
             Debug.Log("HURT");
             animator.SetTrigger("hurt");
-            Hurt();
+            Hurt(50);
         }
         if(health <=0)
         {
@@ -27,9 +27,10 @@ public class characterHealth : MonoBehaviour
         }
     }
 
-    public void Hurt()
+    public void Hurt(float damage)
     {
-        health-=50;
+        animator.SetTrigger("hurt");
+        health-=damage;
     }
     IEnumerator DisableAnimatorAtEnd()
     {

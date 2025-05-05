@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class CyberAgentController : MonoBehaviour
 {
-   public float moveSpeed = 2f;
+    public float moveSpeed = 2f;
     public float detectionRange = 5f;
     public float attackRange = 0.25f;
     public Transform player;
     private Animator animator;
     public GameObject projectilePrefab;
     public float projectileSpeed = 5f;
+    public float attackCooldown = 1.5f;
+    private float lastAttackTime = -Mathf.Infinity;
+    private bool isShooting = false;
 
     void Start()
     {
@@ -28,7 +31,13 @@ public class CyberAgentController : MonoBehaviour
             animator.SetBool("isPlayerNear", true);
             animator.SetBool("isRunning", false);
             FaceDirection(direction.x);
-            animator.SetTrigger("attack");
+
+            if (!IsInAnimationState("Attack") && Time.time >= lastAttackTime + attackCooldown)
+            {
+                animator.SetTrigger("attack");
+                lastAttackTime = Time.time;
+                isShooting = false; // her saldırı başladığında tekrar ateş edebilmesi için sıfırla
+            }
         }
         else if (distanceToPlayer <= detectionRange)
         {
@@ -62,13 +71,17 @@ public class CyberAgentController : MonoBehaviour
         else if (xDirection > 0)
             transform.localScale = new Vector3(3, 3, 1);
     }
+
     bool IsInAnimationState(string stateName)
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 
+    // Bu fonksiyon animasyondan çağrılmalı (Animation Event ile)
     public void ShootProjectile()
     {
+        if (isShooting) return; // zaten ateş ettiyse bu saldırı döngüsünde bir daha etmesin
+
         Vector2 direction = (player.position - transform.position).normalized;
 
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
@@ -76,5 +89,7 @@ public class CyberAgentController : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
             rb.velocity = direction * projectileSpeed;
+
+        isShooting = true;
     }
 }
