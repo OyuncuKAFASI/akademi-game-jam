@@ -9,10 +9,12 @@ public class BanditController : MonoBehaviour
     public float attackRange = 1f;
     public Transform player;
     private Animator animator;
+    public enemyAttack weaponAttackScript;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        weaponAttackScript = GetComponentInChildren<enemyAttack>();
     }
 
     void Update()
@@ -63,5 +65,12 @@ public class BanditController : MonoBehaviour
     bool IsInAnimationState(string stateName)
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
+
+    public void ResetHit()
+    {
+        if (weaponAttackScript != null){
+            weaponAttackScript.ResetHit();
+        }
     }
 }

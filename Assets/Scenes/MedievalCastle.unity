@@ -5321,6 +5321,10 @@ PrefabInstance:
     - target: {fileID: 676973509235503327, guid: f801b2210a764c844b80e98565a04d95, type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 1558065603}
+    - target: {fileID: 676973509235503327, guid: f801b2210a764c844b80e98565a04d95, type: 3}
+      propertyPath: attackRange
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1842855094564336786, guid: f801b2210a764c844b80e98565a04d95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5445,7 +5449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1719673917887559819, guid: c583b27d94b59684c956f0fba1b0c7a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3106681963728488903, guid: c583b27d94b59684c956f0fba1b0c7a7, type: 3}
       propertyPath: player
@@ -5529,7 +5533,7 @@ PrefabInstance:
     - target: {fileID: 7497007984719334176, guid: ac92c881d485285408fd1884d48801fa, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1558065603}
     - target: {fileID: 7497007984719334176, guid: ac92c881d485285408fd1884d48801fa, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 128
@@ -5540,7 +5544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839845083293334136, guid: ac92c881d485285408fd1884d48801fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5566,6 +5570,10 @@ PrefabInstance:
     - target: {fileID: 1175973071107911417, guid: 68e3eebbf25e5c145a88b1de9ddf9ae6, type: 3}
       propertyPath: m_Name
       value: Cyber Agent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175973071107911417, guid: 68e3eebbf25e5c145a88b1de9ddf9ae6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3241367114463187925, guid: 68e3eebbf25e5c145a88b1de9ddf9ae6, type: 3}
       propertyPath: m_LocalPosition.x
